@@ -1,0 +1,16 @@
+{
+  "name": "ripple-auth",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Daniel <danielrudn@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build-ts": "tsc"
+  },
+  "devDependencies": {
+    "prettier": "^1.9.2",
+    "tslint": "^5.8.0",
+    "tslint-config-prettier": "^1.6.0",
+    "typescript": "^2.6.2"
+  }
+}
