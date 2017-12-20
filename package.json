@@ -9,7 +9,7 @@
     "build": "yarn build-ts",
     "build-ts": "tsc",
     "watch":
-      "concurrently -k -p '[{name}]' -n 'TypeScript,Express' -c 'blue.bold,green.bold' 'yarn watch-ts' 'yarn watch-server'",
+      "concurrently -k -p '[{name}]' -n 'TypeScript,Express' 'yarn watch-ts' 'yarn watch-server'",
     "watch-ts": "tsc -w",
     "watch-server": "nodemon dist"
   },
