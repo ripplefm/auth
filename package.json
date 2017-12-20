@@ -6,11 +6,14 @@
   "license": "MIT",
   "scripts": {
     "start": "yarn build && yarn watch",
-    "build": "yarn build-ts",
+    "build": "yarn build-ts && yarn build-sass",
     "build-ts": "tsc",
+    "build-sass": "node-sass src/public/css/main.scss dist/public/css/main.css",
     "watch":
-      "concurrently -k -p '[{name}]' -n 'TypeScript,Express' 'yarn watch-ts' 'yarn watch-server'",
+      "concurrently -k -p '[{name}]' -n 'TypeScript,Express,Sass' 'yarn watch-ts' 'yarn watch-server' 'yarn watch-sass'",
     "watch-ts": "tsc -w",
+    "watch-sass":
+      "node-sass -w src/public/css/main.scss dist/public/css/main.css",
     "watch-server": "nodemon dist"
   },
   "devDependencies": {
@@ -21,6 +24,7 @@
     "@types/helmet": "^0.0.37",
     "@types/morgan": "^1.7.35",
     "concurrently": "^3.5.1",
+    "node-sass": "^4.7.2",
     "nodemon": "^1.13.3",
     "prettier": "^1.9.2",
     "tslint": "^5.8.0",
