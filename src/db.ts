@@ -1,12 +1,14 @@
 import * as path from 'path';
-import { Sequelize } from 'sequelize-typescript';
+import { Connection, createConnection } from 'typeorm';
 
-const sequelize = new Sequelize({
-  dialect: 'postgres',
-  url: process.env.POSTGRES_URL,
-  modelPaths: [path.join(__dirname, 'models')]
-});
+export default async function() {
+  const connection = await createConnection({
+    type: 'postgres',
+    url: process.env.POSTGRES_URL,
+    synchronize: true,
+    entities: [path.join(__dirname, 'entities', '*.js')],
+    logging: process.env.NODE_ENV !== 'production'
+  });
 
-sequelize.sync();
-
-export default sequelize;
+  return connection;
+}
