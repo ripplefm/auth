@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import * as path from 'path';
 import * as express from 'express';
 import * as helmet from 'helmet';
@@ -5,8 +6,8 @@ import * as bodyParser from 'body-parser';
 import * as session from 'express-session';
 import * as morgan from 'morgan';
 import * as connectRedis from 'connect-redis';
+import initDB from './db';
 const RedisStore = connectRedis(session);
-
 const app = express();
 
 app.set('view engine', 'pug');
@@ -26,4 +27,4 @@ app.use(
 );
 app.use(morgan('tiny'));
 
-app.listen(3000, () => console.log('listening...'));
+initDB().then(() => app.listen(3000, () => console.log('listening...')));

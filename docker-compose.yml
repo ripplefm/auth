@@ -20,6 +20,7 @@ services:
     volumes:
       - "./:/usr/app"
       - "/usr/app/node_modules"
+      - "/usr/app/dist"
     environment:
       - "REDIS_HOST=redis"
       - "POSTGRES_URL=postgres://postgres:secret@postgres/ripple_auth"
