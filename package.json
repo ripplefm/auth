@@ -6,15 +6,9 @@
   "license": "MIT",
   "scripts": {
     "start": "yarn build && yarn watch",
-    "build": "yarn build-ts && yarn build-sass",
-    "build-ts": "tsc",
-    "build-sass": "node-sass src/public/css/main.scss dist/public/css/main.css",
+    "build": "tsc && webpack -p",
     "watch":
-      "concurrently -k -p '[{name}]' -n 'TypeScript,Express,Sass' 'yarn watch-ts' 'yarn watch-server' 'yarn watch-sass'",
-    "watch-ts": "tsc -w",
-    "watch-sass":
-      "node-sass -w src/public/css/main.scss dist/public/css/main.css",
-    "watch-server": "nodemon dist"
+      "concurrently -k -p '[{name}]' -n 'TypeScript,Express,Webpack' 'tsc -w' 'nodemon dist' 'webpack --watch'"
   },
   "devDependencies": {
     "@types/bcrypt": "^1.0.0",
@@ -25,12 +19,16 @@
     "@types/helmet": "^0.0.37",
     "@types/morgan": "^1.7.35",
     "concurrently": "^3.5.1",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.2",
     "node-sass": "^4.7.2",
     "nodemon": "^1.13.3",
     "prettier": "^1.9.2",
+    "sass-loader": "^6.0.6",
     "tslint": "^5.8.0",
     "tslint-config-prettier": "^1.6.0",
-    "typescript": "^2.6.2"
+    "typescript": "^2.6.2",
+    "webpack": "^3.10.0"
   },
   "dependencies": {
     "bcrypt": "^1.0.3",
