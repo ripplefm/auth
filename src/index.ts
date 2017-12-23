@@ -6,6 +6,7 @@ import * as bodyParser from 'body-parser';
 import * as session from 'express-session';
 import * as morgan from 'morgan';
 import * as connectRedis from 'connect-redis';
+import { useExpressServer } from 'routing-controllers';
 import initDB from './db';
 const RedisStore = connectRedis(session);
 const app = express();
@@ -26,5 +27,9 @@ app.use(
   })
 );
 app.use(morgan('tiny'));
+
+useExpressServer(app, {
+  controllers: [path.join(__dirname, 'controllers', '*')]
+});
 
 initDB().then(() => app.listen(3000, () => console.log('listening...')));
