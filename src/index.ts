@@ -6,6 +6,7 @@ import * as bodyParser from 'body-parser';
 import * as session from 'express-session';
 import * as morgan from 'morgan';
 import * as connectRedis from 'connect-redis';
+import * as flash from 'express-flash';
 import { useExpressServer } from 'routing-controllers';
 import initDB from './db';
 const RedisStore = connectRedis(session);
@@ -26,6 +27,7 @@ app.use(
     saveUninitialized: false
   })
 );
+app.use(flash());
 app.use(morgan('tiny'));
 
 useExpressServer(app, {

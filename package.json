@@ -7,7 +7,8 @@
   "scripts": {
     "start": "yarn build && yarn watch",
     "build": "tsc && webpack -p",
-    "watch": "concurrently -k -p '[{name}]' -n 'TypeScript,Express,Webpack' 'tsc -w' 'nodemon dist' 'webpack --watch'"
+    "watch":
+      "concurrently -k -p '[{name}]' -n 'TypeScript,Express,Webpack' 'tsc -w' 'nodemon dist' 'webpack --watch'"
   },
   "devDependencies": {
     "@types/bcrypt": "^1.0.0",
@@ -36,6 +37,7 @@
     "bootstrap": "4.0.0-alpha.6",
     "connect-redis": "^3.3.2",
     "express": "^4.16.2",
+    "express-flash": "^0.0.2",
     "express-session": "^1.15.6",
     "helmet": "^3.9.0",
     "morgan": "^1.9.0",

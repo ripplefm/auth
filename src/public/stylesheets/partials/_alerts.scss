@@ -1,0 +1,17 @@
+.container .messages {
+  width: 33%;
+}
+
+.container .alert {
+  width: 100%;
+}
+
+.container .alert::first-letter {
+  text-transform: uppercase;
+}
+
+@media (max-width: $xs-breakpoint) {
+  .container .messages {
+    width: 100%;
+  }
+}
