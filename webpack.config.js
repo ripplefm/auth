@@ -20,7 +20,7 @@ if (production) {
 
 module.exports = {
   entry: {
-    app: ['./src/public/js/index.js', './src/public/css/main.scss']
+    app: ['./src/public/js/index.js', './src/public/stylesheets/main.scss']
   },
   output: {
     filename: '[name].bundle.js',

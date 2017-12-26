@@ -1,0 +1,38 @@
+body {
+  font-family: 'Roboto Condensed', 'sans-serif';
+  overflow: hidden;
+}
+
+nav {
+  height: 48px;
+  padding: 0px 16px;
+  background: #19191b;
+  margin-bottom: $content-margin;
+}
+
+footer {
+  height: 50vh;
+  background: #19191b;
+  margin-top: $content-margin;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: $xs-breakpoint) {
+  nav {
+    margin-bottom: $content-margin-xs;
+  }
+
+  body {
+    overflow-y: scroll;
+  }
+
+  footer {
+    margin-top: $content-margin-xs;
+  }
+}
