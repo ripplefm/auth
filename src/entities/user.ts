@@ -26,4 +26,8 @@ export class User extends ValidatedEntity {
       this.password = await bcrypt.hash(this.password, salt);
     }
   }
+
+  comparePassword(password: string) {
+    return bcrypt.compare(password, this.password);
+  }
 }
