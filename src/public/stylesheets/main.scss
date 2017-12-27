@@ -1,0 +1,9 @@
+// variables/overrides and bootstrap
+@import 'partials/variables';
+@import '~bootstrap/scss/bootstrap.scss';
+
+// partials
+@import 'partials/common';
+@import 'partials/layout';
+@import 'partials/logo';
+@import 'partials/alerts';

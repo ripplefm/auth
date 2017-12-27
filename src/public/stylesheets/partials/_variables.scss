@@ -1,0 +1,27 @@
+// custom
+$content-margin: 64px;
+$content-margin-xs: 20px;
+
+$xs-breakpoint: 768px;
+
+// ===================
+// bootstrap overrides
+// ===================
+$brand-primary: #ef5350;
+
+$body-bg: #212121;
+$body-color: #fff;
+
+// inputs
+$input-bg: #111;
+$input-border-color: #222;
+$input-color: #eee;
+$input-border-focus: transparent;
+
+// cards
+$card-bg: #19191b;
+
+// alerts
+$state-danger-bg: #ef5350;
+$state-danger-border: #a94442;
+$state-danger-text: rgba(256, 256, 256, 0.75);

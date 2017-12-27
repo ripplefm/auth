@@ -6,7 +6,11 @@ import * as bodyParser from 'body-parser';
 import * as session from 'express-session';
 import * as morgan from 'morgan';
 import * as connectRedis from 'connect-redis';
+import * as flash from 'express-flash';
+import { useExpressServer } from 'routing-controllers';
 import initDB from './db';
+import { errorMiddleware } from './middleware/error-middleware';
+
 const RedisStore = connectRedis(session);
 const app = express();
 
@@ -25,6 +29,14 @@ app.use(
     saveUninitialized: false
   })
 );
+app.use(flash());
 app.use(morgan('tiny'));
+
+useExpressServer(app, {
+  controllers: [path.join(__dirname, 'controllers', '*')],
+  defaultErrorHandler: false
+});
+
+app.use(errorMiddleware);
 
 initDB().then(() => app.listen(3000, () => console.log('listening...')));
