@@ -15,6 +15,7 @@ import {
 } from '../middleware/next-redirect-middleware';
 import { queryStringMiddleware } from '../middleware/query-string-middleware';
 import { User } from '../entities/user';
+import InvalidInputError from '../errors/invalid-input-error';
 
 @Controller('/register')
 export class RegistrationController {
@@ -39,6 +40,9 @@ export class RegistrationController {
     @BodyParam('password') password: string,
     @BodyParam('confirmPassword') confirmPassword: string
   ) {
+    if (password !== confirmPassword) {
+      throw new InvalidInputError('Passwords must match');
+    }
     const user = User.create({ email, username, password });
     await user.save();
     req.session.user = user;
