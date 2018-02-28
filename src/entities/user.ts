@@ -2,6 +2,7 @@ import ValidatedEntity from '../utils/validated-entity';
 import { BeforeInsert, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 import { Length, IsEmail } from 'class-validator';
 import * as bcrypt from 'bcrypt';
+import * as randomstring from 'randomstring';
 
 @Entity('users')
 export class User extends ValidatedEntity {
@@ -15,9 +16,22 @@ export class User extends ValidatedEntity {
   @IsEmail()
   email: string;
 
+  @Column({ default: false })
+  is_active: boolean;
+
+  @Column({ unique: true })
+  activation_token: string;
+
   @Column({ select: false })
   @Length(8, 128)
   password: string;
+
+  @BeforeInsert()
+  generateActivationToken() {
+    if (!this.is_active) {
+      this.activation_token = randomstring.generate(64);
+    }
+  }
 
   @BeforeInsert()
   async hashPassword() {

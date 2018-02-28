@@ -59,6 +59,7 @@ typings/
 
 # build
 dist
+views/emails
 
 # editor files
 .vscode/

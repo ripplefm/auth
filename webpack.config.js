@@ -1,6 +1,7 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const MjmlPlugin = require('tde-webpack-mjml-plugin');
 const webpack = require('webpack');
 const production = process.env.NODE_ENV === 'production';
 
@@ -12,7 +13,11 @@ const copyImagesPlugin = new CopyPlugin([
   { from: './src/public/images', to: 'images' }
 ]);
 
-const plugins = [extractSassPlugin, copyImagesPlugin];
+const renderMjmlPlugin = new MjmlPlugin(path.join('views', 'mjml'), {
+  outputPath: path.join('views', 'emails')
+});
+
+const plugins = [extractSassPlugin, copyImagesPlugin, renderMjmlPlugin];
 
 if (production) {
   plugins.push(new webpack.optimize.UglifyJsPlugin({ warnings: false }));
