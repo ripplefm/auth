@@ -1,0 +1,40 @@
+<mjml>
+  <mj-head>
+    <mj-title>Welcome to ripple.fm</mj-title>
+    <mj-attributes>
+      <mj-all font-family="Helvetica Neue"></mj-all>
+      <mj-text font-weight="400" font-size="16px" color="#000000" line-height="24px"></mj-text>
+      <mj-section padding="0px"></mj-section>
+    </mj-attributes>
+    <mj-style inline="inline">
+      .card { border-radius: 4px; box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05); }
+    </mj-style>
+  </mj-head>
+  <mj-body background-color="#19191b">
+    <mj-container background-color="#19191b">
+      <mj-section padding="20px 0px">
+        <mj-column>
+          <mj-image src="{{publicDomain}}/images/logo.png" width="54px"></mj-image>
+        </mj-column>
+      </mj-section>
+      <mj-wrapper css-class="card" padding="0px">
+        <mj-section padding-top="20px" padding-bottom="0px" background-color="#212121">
+          <mj-column width="100%">
+            <mj-text align="center" font-size="20px" color="#eee" font-weight="300">Welcome to ripple.fm!</mj-text>
+            <mj-divider width="95%" padding-top="24px" border-width="2px" border-color="#333"></mj-divider>
+          </mj-column>
+        </mj-section>
+        <mj-section background-color="#212121" padding-top="10px" padding-bottom="24px">
+          <mj-column>
+            <mj-text align="center" font-size="16px" color="grey" font-weight="200">In order to start using your ripple.fm account, you need to verify your email address.</mj-text>
+            <mj-button href="{{activationUrl}}" width="50%" padding-top="32px" padding-bottom="20px" background-color="#ef5350" font-weight="300" font-family="Helvetica Neue" font-size="16px">
+              Confirm Email Address
+            </mj-button>
+            <mj-divider width="33%" padding-bottom="12px" border-width="2px" border-color="#333"></mj-divider>
+            <mj-text align="center" font-size="12px" color="#444">If you didn't sign up for an account, ignore this email.</mj-text>
+          </mj-column>
+        </mj-section>
+      </mj-wrapper>
+    </mj-container>
+  </mj-body>
+</mjml>

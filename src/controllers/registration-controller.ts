@@ -16,6 +16,7 @@ import {
 import { queryStringMiddleware } from '../middleware/query-string-middleware';
 import { User } from '../entities/user';
 import InvalidInputError from '../errors/invalid-input-error';
+import EmailService from '../services/email-service';
 
 @Controller('/register')
 export class RegistrationController {
@@ -46,6 +47,7 @@ export class RegistrationController {
     const user = User.create({ email, username, password });
     await user.save();
     req.session.user = user;
+    await EmailService.sendActivationEmail(user);
     return getNextRedirectUrl(req);
   }
 }
