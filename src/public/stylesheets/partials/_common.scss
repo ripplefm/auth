@@ -13,9 +13,21 @@
 }
 
 .form-card {
-  width: 33%;
-  padding: 1.5rem;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  width: 400px;
+  padding: 3rem;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+
+  .btn-primary {
+    border-radius: 2px;
+    font-weight: 400;
+    font-size: 12px;
+    text-transform: uppercase;
+    padding: 12px 24px;
+    cursor: pointer;
+    border: none;
+    background: linear-gradient(to bottom, #ef5350, #a71c1a);
+  }
 }
 
 @media (max-width: $xs-breakpoint) {
