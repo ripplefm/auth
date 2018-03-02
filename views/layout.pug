@@ -9,13 +9,9 @@ html
     script(src='/app.bundle.js')
 
   body
-    include header
-
     .container
       .messages
         each msgType in Object.keys(locals.messages)
           each message in locals.messages[msgType]
             div(class="alert alert-" + msgType) #{message}
       block content
-    
-    include footer

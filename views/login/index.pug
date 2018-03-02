@@ -6,11 +6,14 @@ block content
       .logo
         img(src="/images/logo.png")
         h3 ripple.fm
-      form.register(action="login", method="POST")
+      form.login(action="login", method="POST")
         .form-group
           label(for="emailOrUsername") Email or Username
           input.form-control(type="text", name="emailOrUsername" value=prev_emailOrUsername || '')
         .form-group
-          label(for="password") Password
+          label(for="password")
+          | Password
+          small.pt-2
+            a.float-right(href="/forgot-password") forgot password?
           input.form-control(type="password", name="password")
         button.btn.btn-md.btn-primary.mt-4.float-right(type="submit") Log In
