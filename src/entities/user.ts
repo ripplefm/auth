@@ -1,7 +1,7 @@
 import ValidatedEntity from '../utils/validated-entity';
 import { BeforeInsert, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 import { Length, IsEmail } from 'class-validator';
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcryptjs';
 import * as randomstring from 'randomstring';
 
 @Entity('users')
