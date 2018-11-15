@@ -60,6 +60,6 @@
     "randomstring": "^1.1.5",
     "reflect-metadata": "^0.1.10",
     "routing-controllers": "^0.7.6",
-    "typeorm": "^0.1.9"
+    "typeorm": "^0.2.9"
   }
 }
