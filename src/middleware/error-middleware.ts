@@ -24,7 +24,7 @@ export function errorMiddleware(
     req.flash('danger', err.message);
     return res.render(req.path.substring(1), prevFormFields);
   } else if (err instanceof QueryFailedError) {
-    req.flash('danger', err.detail);
+    req.flash('danger', err.message);
     return res.render(req.path.substring(1), prevFormFields);
   }
 }
