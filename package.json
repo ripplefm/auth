@@ -8,7 +8,8 @@
     "start": "yarn build && yarn watch",
     "build": "tsc && webpack -p",
     "watch":
-      "concurrently -k -p '[{name}]' -n 'TypeScript,Express,Webpack' 'tsc -w' 'nodemon dist' 'webpack --watch'"
+      "concurrently -k -p '[{name}]' -n 'TypeScript,Express,Webpack' 'tsc -w' 'nodemon dist' 'webpack --watch'",
+    "lint": "prettier --parser typescript --debug-check \"src/**/*.ts\""
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
