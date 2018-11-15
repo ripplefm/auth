@@ -1,0 +1,22 @@
+FROM node:10 as builder
+
+WORKDIR /build/app
+
+COPY src ./src
+COPY package.json .
+COPY webpack.config.js .
+COPY tsconfig.json .
+
+RUN yarn install && yarn build
+
+FROM node:10-alpine
+
+WORKDIR /usr/app
+
+COPY --from=builder /build/app/dist /usr/app/dist
+COPY --from=builder /build/app/node_modules /usr/app/node_modules
+COPY --from=builder /build/app/views /usr/app/views
+
+EXPOSE 3000
+
+CMD ["node", "dist"]

@@ -6,8 +6,8 @@ services:
   postgres:
     image: postgres
     environment:
-      - "POSTGRES_DB=ripple_auth"
-      - "POSTGRES_PASSWORD=secret"
+      - 'POSTGRES_DB=ripple_auth'
+      - 'POSTGRES_PASSWORD=secret'
 
   app:
     build: .
@@ -16,12 +16,14 @@ services:
       - redis
       - postgres
     ports:
-      - "3000:3000"
+      - '3000:3000'
     volumes:
-      - "./:/usr/app"
-      - "/usr/app/node_modules"
-      - "/usr/app/dist"
+      - './:/usr/app'
+      - '/usr/app/node_modules'
+      - '/usr/app/dist'
     environment:
-      - "REDIS_HOST=redis"
-      - "POSTGRES_URL=postgres://postgres:secret@postgres/ripple_auth"
-      - "COOKIE_SECRET=secret"
+      - 'REDIS_HOST=redis'
+      - 'POSTGRES_URL=postgres://postgres:secret@postgres/ripple_auth'
+      - 'COOKIE_SECRET=secret'
+      - 'MAILGUN_API_KEY'
+      - 'MAILGUN_API_DOMAIN'
