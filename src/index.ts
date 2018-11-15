@@ -40,3 +40,5 @@ useExpressServer(app, {
 app.use(errorMiddleware);
 
 initDB().then(() => app.listen(3000, () => console.log('listening...')));
+
+export default app;
