@@ -1,8 +1,15 @@
 import ValidatedEntity from '../utils/validated-entity';
-import { BeforeInsert, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  BeforeInsert,
+  Column,
+  Entity,
+  PrimaryGeneratedColumn,
+  OneToMany
+} from 'typeorm';
 import { Length, IsEmail } from 'class-validator';
 import * as bcrypt from 'bcryptjs';
 import * as randomstring from 'randomstring';
+import { AccessToken } from './access-token';
 
 @Entity('users')
 export class User extends ValidatedEntity {
@@ -25,6 +32,9 @@ export class User extends ValidatedEntity {
   @Column({ select: false })
   @Length(8, 128)
   password: string;
+
+  @OneToMany(type => AccessToken, token => token.user)
+  tokens: AccessToken[];
 
   @BeforeInsert()
   generateActivationToken() {
