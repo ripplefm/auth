@@ -21,9 +21,13 @@ services:
       - './:/usr/app'
       - '/usr/app/node_modules'
       - '/usr/app/dist'
+      - './test/support:/usr/app/test/support'
     environment:
       - 'REDIS_HOST=redis'
       - 'POSTGRES_URL=postgres://postgres:secret@postgres/ripple_auth'
       - 'COOKIE_SECRET=secret'
+      - 'PUBLIC_DOMAIN'
       - 'MAILGUN_API_KEY'
       - 'MAILGUN_API_DOMAIN'
+      - 'PRIVATE_KEY_LOCATION'
+      - 'PUBLIC_KEY_LOCATION'
