@@ -25,6 +25,12 @@
   version "4.1.7"
   resolved "https://registry.yarnpkg.com/@types/chai/-/chai-4.1.7.tgz#1b8e33b61a8c09cbe1f85133071baa0dbf9fa71a"
 
+"@types/commander@^2.12.2":
+  version "2.12.2"
+  resolved "https://registry.yarnpkg.com/@types/commander/-/commander-2.12.2.tgz#183041a23842d4281478fa5d23c5ca78e6fd08ae"
+  dependencies:
+    commander "*"
+
 "@types/connect-flash@*":
   version "0.0.34"
   resolved "https://registry.yarnpkg.com/@types/connect-flash/-/connect-flash-0.0.34.tgz#ec7323d1636bc8d9b7c02c3a0a5d337602b671f9"
@@ -1000,6 +1006,10 @@ combined-stream@^1.0.6:
   resolved "https://registry.yarnpkg.com/combined-stream/-/combined-stream-1.0.7.tgz#2d1d24317afb8abe95d6d2c0b07b57813539d828"
   dependencies:
     delayed-stream "~1.0.0"
+
+commander@*, commander@^2.19.0:
+  version "2.19.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-2.19.0.tgz#f6198aa84e5b83c46054b94ddedbfed5ee9ff12a"
 
 commander@2.14.x, commander@~2.14.1:
   version "2.14.1"
