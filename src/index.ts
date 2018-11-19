@@ -4,6 +4,7 @@ import * as express from 'express';
 import * as helmet from 'helmet';
 import * as bodyParser from 'body-parser';
 import * as session from 'express-session';
+import * as csurf from 'csurf';
 import * as morgan from 'morgan';
 import * as connectRedis from 'connect-redis';
 import flash = require('express-flash');
@@ -30,12 +31,16 @@ app.use(
     saveUninitialized: false
   })
 );
+app.use(csurf());
 app.use(flash());
 app.use(morgan('tiny'));
 
 app.use('/oauth2', OAuthRouter);
 useExpressServer(app, {
-  controllers: [path.join(__dirname, 'controllers', '*')],
+  controllers: [
+    path.join(__dirname, 'controllers', '*'),
+    path.join(__dirname, 'controllers', 'api', '*')
+  ],
   defaultErrorHandler: false
 });
 

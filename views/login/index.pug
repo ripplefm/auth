@@ -7,6 +7,7 @@ block content
         img(src="/images/logo.png")
         h3 ripple.fm
       form.login(action="login", method="POST")
+        input(type="hidden", name="_csrf", value=csrfToken || prev__csrf)
         .form-group
           label(for="emailOrUsername") Email or Username
           input.form-control(type="text", name="emailOrUsername" value=prev_emailOrUsername || '')

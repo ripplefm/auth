@@ -28,7 +28,8 @@ export class RegistrationController {
       return res.redirect(getNextRedirectUrl(req));
     }
     return res.render('register', {
-      loginURL: `/login${res.locals.queryString}`
+      loginURL: `/login${res.locals.queryString}`,
+      csrfToken: req.csrfToken()
     });
   }
 
