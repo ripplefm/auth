@@ -6,6 +6,7 @@ COPY src ./src
 COPY package.json .
 COPY webpack.config.js .
 COPY tsconfig.json .
+COPY views ./views
 
 RUN yarn install && yarn build
 

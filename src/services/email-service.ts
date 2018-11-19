@@ -54,28 +54,30 @@ class EmailService {
     template: string,
     context?: EmailContext
   ) {
-    return new Promise(async (resolve, reject) => {
-      try {
-        const html = await this.loadTemplate(template, context);
-        this.mailgun.messages().send(
-          {
-            from: 'ripple.fm <support@ripple.fm>',
-            to,
-            subject,
-            html
-          },
-          (err: Error) => {
-            if (err) {
-              reject(err);
-            } else {
-              resolve();
+    if (process.env.NODE_ENV === 'production') {
+      return new Promise(async (resolve, reject) => {
+        try {
+          const html = await this.loadTemplate(template, context);
+          this.mailgun.messages().send(
+            {
+              from: 'ripple.fm <support@ripple.fm>',
+              to,
+              subject,
+              html
+            },
+            (err: Error) => {
+              if (err) {
+                reject(err);
+              } else {
+                resolve();
+              }
             }
-          }
-        );
-      } catch (err) {
-        reject(err);
-      }
-    });
+          );
+        } catch (err) {
+          reject(err);
+        }
+      });
+    }
   }
 }
 
