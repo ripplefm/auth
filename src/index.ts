@@ -6,7 +6,7 @@ import * as bodyParser from 'body-parser';
 import * as session from 'express-session';
 import * as morgan from 'morgan';
 import * as connectRedis from 'connect-redis';
-import * as flash from 'express-flash';
+import flash = require('express-flash');
 import { useExpressServer } from 'routing-controllers';
 import initDB from './db';
 import { errorMiddleware } from './middleware/error-middleware';
