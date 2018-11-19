@@ -27,7 +27,8 @@ export class LoginController {
       return res.redirect(getNextRedirectUrl(req));
     }
     return res.render('login', {
-      registerURL: `/register${res.locals.queryString}`
+      registerURL: `/register${res.locals.queryString}`,
+      csrfToken: req.csrfToken()
     });
   }
 
