@@ -1,6 +1,7 @@
 import ValidatedEntity from '../utils/validated-entity';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { AccessToken } from './access-token';
+import { IsUrl, ArrayUnique, ArrayNotEmpty } from 'class-validator';
 
 @Entity('oauth2_clients')
 export class OAuth2Client extends ValidatedEntity {
@@ -10,6 +11,9 @@ export class OAuth2Client extends ValidatedEntity {
   clientSecret: string;
 
   @Column({ name: 'redirect_uris', type: 'simple-array' })
+  @ArrayUnique()
+  @ArrayNotEmpty()
+  @IsUrl({}, { each: true })
   redirectUris: string[];
 
   @Column() name: string;
