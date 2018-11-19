@@ -10,6 +10,7 @@ import flash = require('express-flash');
 import { useExpressServer } from 'routing-controllers';
 import initDB from './db';
 import { errorMiddleware } from './middleware/error-middleware';
+import OAuthRouter from './controllers/oauth2-controller';
 
 const RedisStore = connectRedis(session);
 const app = express();
@@ -32,6 +33,7 @@ app.use(
 app.use(flash());
 app.use(morgan('tiny'));
 
+app.use('/oauth2', OAuthRouter);
 useExpressServer(app, {
   controllers: [path.join(__dirname, 'controllers', '*')],
   defaultErrorHandler: false
