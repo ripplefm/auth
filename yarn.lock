@@ -25,6 +25,12 @@
   version "4.1.7"
   resolved "https://registry.yarnpkg.com/@types/chai/-/chai-4.1.7.tgz#1b8e33b61a8c09cbe1f85133071baa0dbf9fa71a"
 
+"@types/connect-flash@*":
+  version "0.0.34"
+  resolved "https://registry.yarnpkg.com/@types/connect-flash/-/connect-flash-0.0.34.tgz#ec7323d1636bc8d9b7c02c3a0a5d337602b671f9"
+  dependencies:
+    "@types/express" "*"
+
 "@types/connect-redis@^0.0.7":
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/@types/connect-redis/-/connect-redis-0.0.7.tgz#97948bc727d29e5413d1ebc6be7aa26df86bca7e"
@@ -40,6 +46,13 @@
 "@types/events@*":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@types/events/-/events-1.1.0.tgz#93b1be91f63c184450385272c47b6496fd028e02"
+
+"@types/express-flash@^0.0.0":
+  version "0.0.0"
+  resolved "http://registry.npmjs.org/@types/express-flash/-/express-flash-0.0.0.tgz#758f0dff051f58001c31f41815c435ed0ae90ec0"
+  dependencies:
+    "@types/connect-flash" "*"
+    "@types/express" "*"
 
 "@types/express-serve-static-core@*":
   version "4.11.0"
