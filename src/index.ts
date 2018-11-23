@@ -37,6 +37,9 @@ app.use(morgan('tiny'));
 
 app.use('/oauth2', OAuthRouter);
 useExpressServer(app, {
+  cors: {
+    origin: '*'
+  },
   controllers: [
     path.join(__dirname, 'controllers', '*'),
     path.join(__dirname, 'controllers', 'api', '*')

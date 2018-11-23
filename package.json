@@ -55,6 +55,7 @@
     "class-validator": "^0.7.3",
     "commander": "^2.19.0",
     "connect-redis": "^3.3.2",
+    "cors": "^2.8.5",
     "csurf": "^1.9.0",
     "express": "^4.16.2",
     "express-flash": "^0.0.2",
