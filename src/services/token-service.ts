@@ -1,5 +1,6 @@
 import { readFileSync } from 'fs';
 import * as jwt from 'jsonwebtoken';
+import { TokenClaims } from '../types/token-claims';
 import { AccessToken } from '../entities/access-token';
 import { OAuth2Client } from '../entities/oauth2-client';
 import { User } from '../entities/user';
@@ -15,12 +16,16 @@ class TokenService {
     this.public_domain = process.env.PUBLIC_DOMAIN;
   }
 
-  verify(token: string) {
-    return jwt.verify(token, this.public_cert, {
-      algorithms: ['RS256'],
-      issuer: this.public_domain,
-      maxAge: '30m'
-    });
+  verify(token: string): TokenClaims | undefined {
+    try {
+      return jwt.verify(token, this.public_cert, {
+        algorithms: ['RS256'],
+        issuer: this.public_domain,
+        maxAge: '30m'
+      }) as TokenClaims;
+    } catch (err) {
+      return undefined;
+    }
   }
 
   findByUserIdAndClientId(userId: string, clientId: string) {
