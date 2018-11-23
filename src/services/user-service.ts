@@ -27,6 +27,13 @@ class UserService {
       .where('user.activation_token = :token', { token })
       .getOne();
   }
+
+  findById(id: string) {
+    return User.findOne({
+      where: { id },
+      select: ['id', 'username', 'email', 'is_active']
+    });
+  }
 }
 
 export default new UserService();
