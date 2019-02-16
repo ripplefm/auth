@@ -24,7 +24,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(
   session({
     store: new RedisStore({
-      host: process.env.REDIS_HOST
+      host: process.env.REDIS_HOST,
+      pass: process.env.REDIS_PASSWORD
     }),
     secret: process.env.COOKIE_SECRET,
     resave: false,
