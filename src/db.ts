@@ -7,7 +7,10 @@ let numTries = 0;
 function connect() {
   return createConnection({
     type: 'postgres',
-    url: process.env.POSTGRES_URL,
+    host: process.env.POSTGRES_HOST,
+    username: process.env.POSTGRES_USERNAME,
+    password: process.env.POSTGRES_PASSWORD,
+    database: process.env.POSTGRES_DATABASE,
     synchronize: false,
     entities: [path.join(__dirname, 'entities', '*')],
     migrations: [path.join(__dirname, 'migrations', '*')],
