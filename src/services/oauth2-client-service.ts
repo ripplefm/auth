@@ -22,6 +22,10 @@ class OAuthClientService {
   findById(id: string) {
     return OAuth2Client.findOne({ where: { id } });
   }
+
+  findByName(name: string) {
+    return OAuth2Client.findOne({ where: { name } });
+  }
 }
 
 export default new OAuthClientService();
