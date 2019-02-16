@@ -24,7 +24,10 @@ services:
       - './test/support:/usr/app/test/support'
     environment:
       - 'REDIS_HOST=redis'
-      - 'POSTGRES_URL=postgres://postgres:secret@postgres/ripple_auth'
+      - 'POSTGRES_HOST=postgres'
+      - 'POSTGRES_USERNAME=postgres'
+      - 'POSTGRES_PASSWORD=secret'
+      - 'POSTGRES_DATABASE=ripple_auth'
       - 'COOKIE_SECRET=secret'
       - 'PUBLIC_DOMAIN'
       - 'MAILGUN_API_KEY'
