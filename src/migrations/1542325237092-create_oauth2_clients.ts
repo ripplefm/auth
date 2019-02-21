@@ -16,7 +16,7 @@ export class createOauth2Clients1542325237092 implements MigrationInterface {
             name: 'id',
             type: 'uuid',
             isPrimary: true,
-            default: 'uuid_generate_v4()'
+            default: 'gen_random_uuid()'
           },
           {
             name: 'client_secret',

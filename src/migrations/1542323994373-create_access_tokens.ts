@@ -15,7 +15,7 @@ export class createAccessTokens1542323994373 implements MigrationInterface {
             name: 'id',
             type: 'uuid',
             isPrimary: true,
-            default: 'uuid_generate_v4()'
+            default: 'gen_random_uuid()'
           },
           {
             name: 'token',
