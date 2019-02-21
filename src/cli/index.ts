@@ -4,7 +4,7 @@ import OAuth2ClientService from '../services/oauth2-client-service';
 
 (async () => {
   const connection = await initDB();
-  program.version('0.1.1', '-v, --version');
+  program.version('0.1.2', '-v, --version');
 
   program
     .command('migrate')
