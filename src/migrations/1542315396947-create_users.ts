@@ -2,6 +2,7 @@ import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
 export class create_users1542315396947 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<any> {
+    await queryRunner.query('CREATE EXTENSION IF NOT EXISTS pgcrypto');
     await queryRunner.createTable(
       new Table({
         name: 'users',
@@ -10,7 +11,7 @@ export class create_users1542315396947 implements MigrationInterface {
             name: 'id',
             type: 'uuid',
             isPrimary: true,
-            default: 'uuid_generate_v4()'
+            default: 'gen_random_uuid()'
           },
           {
             name: 'username',
@@ -44,5 +45,6 @@ export class create_users1542315396947 implements MigrationInterface {
 
   public async down(queryRunner: QueryRunner): Promise<any> {
     await queryRunner.dropTable('users');
+    await queryRunner.query('DROP EXTENSION pgcrypto');
   }
 }
