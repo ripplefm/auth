@@ -46,6 +46,8 @@ export function errorMiddleware(
     } else if (err instanceof HttpError) {
       return res.status(err.httpCode).json({ error: err.message });
     } else {
+      console.error('Uncaught exception. HTTP 500');
+      console.error(err);
       return res.status(500).send('Unknown error occurred.');
     }
   }
