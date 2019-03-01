@@ -8,19 +8,17 @@ import { User } from '../entities/user';
 class TokenService {
   private cert: Buffer;
   private public_cert: Buffer;
-  private public_domain: string;
 
   constructor() {
     this.cert = readFileSync(process.env.PRIVATE_KEY_LOCATION);
     this.public_cert = readFileSync(process.env.PUBLIC_KEY_LOCATION);
-    this.public_domain = process.env.PUBLIC_DOMAIN;
   }
 
   verify(token: string): TokenClaims | undefined {
     try {
       return jwt.verify(token, this.public_cert, {
         algorithms: ['RS256'],
-        issuer: this.public_domain,
+        issuer: 'ripple.fm',
         maxAge: '30m'
       }) as TokenClaims;
     } catch (err) {
@@ -49,7 +47,7 @@ class TokenService {
       {
         algorithm: 'RS256',
         expiresIn: '30m',
-        issuer: this.public_domain,
+        issuer: 'ripple.fm',
         audience: client.id
       }
     );
