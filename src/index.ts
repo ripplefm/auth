@@ -19,7 +19,14 @@ const app = express();
 app.set('view engine', 'pug');
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(helmet());
+app.use(
+  helmet({
+    frameguard: {
+      action: 'allow-from',
+      domain: process.env.PUBLIC_DOMAIN
+    }
+  })
+);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(
   session({

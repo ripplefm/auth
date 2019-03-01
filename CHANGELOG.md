@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.4] - 2019-03-01
+
+### Changed
+
+* Tokens are now signed with static issuer `ripple.fm` instead of signing with environment variable provided in `PUBLIC_DOMAIN`
+* Configured `helmet` and `frameguard` to allow iframe embedding on domain provided in environment variable `PUBLIC_DOMAIN`
+
 ## [0.1.3] - 2019-02-26
 
 ### Changed
