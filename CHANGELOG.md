@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.5] - 2019-03-12
+
+### Fixed
+
+* Emails can now be sent in production
+* Activation emails have working link
+
 ## [0.1.4] - 2019-03-01
 
 ### Changed
