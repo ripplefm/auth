@@ -10,9 +10,11 @@ interface EmailContext {
 class EmailService {
   private mailgun: any;
   private publicDomain: string;
+  private authDomain: string;
 
   constructor() {
     this.publicDomain = process.env.PUBLIC_DOMAIN;
+    this.authDomain = process.env.AUTH_DOMAIN;
     this.mailgun = mailgun({
       apiKey: process.env.MAILGUN_API_KEY,
       domain: process.env.MAILGUN_API_DOMAIN
@@ -22,7 +24,7 @@ class EmailService {
   sendActivationEmail(user: User) {
     return this.sendEmail(user.email, 'Activate your account', 'activation', {
       publicDomain: this.publicDomain,
-      activationUrl: `${this.publicDomain}/activate/${user.activation_token}`
+      activationUrl: `${this.authDomain}/activate/${user.activation_token}`
     });
   }
 

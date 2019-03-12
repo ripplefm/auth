@@ -30,6 +30,7 @@ services:
       - 'POSTGRES_DATABASE=ripple_auth'
       - 'COOKIE_SECRET=secret'
       - 'PUBLIC_DOMAIN'
+      - 'AUTH_DOMAIN'
       - 'MAILGUN_API_KEY'
       - 'MAILGUN_API_DOMAIN'
       - 'PRIVATE_KEY_LOCATION'
