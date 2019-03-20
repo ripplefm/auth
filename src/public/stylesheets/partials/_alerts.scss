@@ -1,17 +1,20 @@
-.container .messages {
-  width: 33%;
-}
-
-.container .alert {
+.messages,
+.alert {
   width: 100%;
 }
 
-.container .alert::first-letter {
+.alert {
+  color: $brand-primary;
+  background: #ef53501e;
+  border: 1px solid $brand-primary;
+}
+
+.alert::first-letter {
   text-transform: uppercase;
 }
 
 @media (max-width: $xs-breakpoint) {
-  .container .messages {
+  .messages {
     width: 100%;
   }
 }

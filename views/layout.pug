@@ -9,9 +9,4 @@ html
     script(src='/app.bundle.js')
 
   body
-    .container
-      .messages
-        each msgType in Object.keys(locals.messages)
-          each message in locals.messages[msgType]
-            div(class="alert alert-" + msgType) #{message}
-      block content
+    block content
