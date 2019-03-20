@@ -1,0 +1,17 @@
+extends ./layout
+include mixins/form.pug
+
+block content
+  .form-section
+    .logo
+      img(src="/images/logo.png")
+      h3 ripple.fm
+    block form-section
+    .bottom
+      block form-bottom
+  .gradient-section
+    img(src="/images/wave.svg")
+    .circle
+    .circle
+    .circle
+    block gradient-section

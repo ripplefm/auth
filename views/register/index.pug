@@ -1,24 +1,16 @@
-extends ../layout
+extends ../form-layout
 
-block content
-  .card.form-card.gradient-bar
-    .card-body
-      .logo
-        img(src="/images/logo.png")
-        h3 ripple.fm
-      form.register(action="register", method="POST")
-        input(type="hidden", name="_csrf", value=csrfToken || prev__csrf)
-        .form-group
-          label(for="email") Email
-          input.form-control(type="text", name="email" value=prev_email || '')
-        .form-group
-          label(for="username") Username
-          input.form-control(type="text", name="username" value=prev_username || '')
-        .form-group
-          label(for="password") Password
-          input.form-control(type="password", name="password")
-        .form-group
-          label(for="confirmPassword") Confirm Password
-          input.form-control(type="password", name="confirmPassword")
-        button.btn.btn-md.btn-primary.mt-4.float-right(type="submit") Sign Up
-        a.float-left.mt-4.pt-2(href=loginURL) Already have an account?
+block form-section
+  +form('register')
+    +form_field('Email')(type="email", name="email", value=prev_email)
+    +form_field('Username')(type="text", name="username", value=prev_username)
+    +form_field('Password')(type="password", name="password")
+    +form_field('Confirm Password')(type="password", name="confirmPassword")
+    +submit_button('Sign Up')
+block form-bottom
+  a(href=loginURL)
+    | Already have an account?
+    strong  Log In
+block gradient-section
+  h1 Welcome!
+  h2 Create an account to get started with ripple.fm

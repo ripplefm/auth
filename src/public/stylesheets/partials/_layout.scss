@@ -16,14 +16,6 @@ footer {
   margin-top: $content-margin;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding-top: 32px;  
-}
-
 @media (max-width: $xs-breakpoint) {
   nav {
     margin-bottom: $content-margin-xs;
@@ -36,4 +28,19 @@ footer {
   footer {
     margin-top: $content-margin-xs;
   }
+}
+
+// override webkit autofill css
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: none !important;
+  -webkit-box-shadow: 0 0 0px 1000px $input-bg inset;
+  box-shadow: 0 0 0px 1000px $input-bg inset;
+  -webkit-text-fill-color: $input-color;
+  transition: none;
 }

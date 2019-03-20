@@ -1,0 +1,14 @@
+mixin form(action, method='POST')
+  form(class!=attributes.class, action=action, method=method)
+    include ../partials/messages.pug
+    input(type="hidden", name="_csrf", value=csrfToken || prev__csrf)
+    block
+
+mixin form_field(label)
+  .form-group.shadow
+    label(for!=attributes.name) #{label}
+    input.form-control(type!=attributes.type, name!=attributes.name, value!=attributes.value || '')
+
+mixin submit_button(text)
+  button.btn.btn-md.btn-primary.mt-4.float-right(type="submit", style="clear: right;") #{text}
+    img(src="/images/icons/arrow-right.svg")

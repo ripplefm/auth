@@ -7,10 +7,13 @@
   & img {
     height: 64px;
     width: auto;
-    margin-right: 12px;
+    margin-right: 20px;
   }
 
   & h3 {
     margin-top: 8px;
+    font-size: 2em;
+    letter-spacing: 0.05em;
+    font-weight: bolder;
   }
 }
