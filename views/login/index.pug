@@ -1,20 +1,16 @@
-extends ../layout
+extends ../form-layout
 
-block content
-  .card.form-card.gradient-bar
-    .card-body
-      .logo
-        img(src="/images/logo.png")
-        h3 ripple.fm
-      form.login(action="login", method="POST")
-        input(type="hidden", name="_csrf", value=csrfToken || prev__csrf)
-        .form-group
-          label(for="emailOrUsername") Email or Username
-          input.form-control(type="text", name="emailOrUsername" value=prev_emailOrUsername || '')
-        .form-group
-          label(for="password")
-          | Password
-          small.pt-2
-            a.float-right(href="/forgot-password") forgot password?
-          input.form-control(type="password", name="password")
-        button.btn.btn-md.btn-primary.mt-4.float-right(type="submit") Log In
+block form-section
+  +form('login')
+    +form_field('Email or Username')(type="text", name="emailOrUsername", value=prev_emailOrUsername)
+    +form_field('Password')(type="password", name="password")
+    a.mt-4.pt-2.float-left(href="/forgot-password", tabindex="-1")
+      small Forgot Password?
+    +submit_button('Log In')
+block form-bottom
+  a(href=registerURL)
+    | Don't have an account?
+    strong  Sign Up
+block gradient-section
+  h1 Welcome back!
+  h2 Log in to continue to ripple.fm
