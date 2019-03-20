@@ -6850,9 +6850,9 @@ typeorm@^0.2.9:
     yargonaut "^1.1.2"
     yargs "^11.1.0"
 
-typescript@^2.6.2:
-  version "2.6.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.6.2.tgz#3c5b6fd7f6de0914269027f03c0946758f7673a4"
+typescript@^3.3.4000:
+  version "3.3.4000"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.3.4000.tgz#76b0f89cfdbf97827e1112d64f283f1151d6adf0"
 
 ua-parser-js@^0.7.9:
   version "0.7.17"
