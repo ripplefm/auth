@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.2] - 2019-03-24
+
+### Fixed
+
+* Add `Content-Security-Policy` header with `PUBLIC_DOMAIN` as frame-ancestor to allow iframes to be embedded on `PUBLIC_DOMAIN`
+
 ## [0.2.1] - 2019-03-20
 
 ### Changed

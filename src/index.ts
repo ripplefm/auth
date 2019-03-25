@@ -21,6 +21,11 @@ app.set('view engine', 'pug');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(
   helmet({
+    contentSecurityPolicy: {
+      directives: {
+        frameAncestors: [process.env.PUBLIC_DOMAIN]
+      }
+    },
     frameguard: {
       action: 'allow-from',
       domain: process.env.PUBLIC_DOMAIN
