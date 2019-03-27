@@ -7,6 +7,7 @@ import * as session from 'express-session';
 import * as csurf from 'csurf';
 import * as morgan from 'morgan';
 import * as connectRedis from 'connect-redis';
+import * as url from 'url';
 import flash = require('express-flash');
 import { useExpressServer } from 'routing-controllers';
 import initDB from './db';
@@ -41,7 +42,10 @@ app.use(
     }),
     secret: process.env.COOKIE_SECRET,
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    cookie: {
+      domain: `${url.parse(process.env.PUBLIC_DOMAIN).hostname}`
+    }
   })
 );
 app.use(csurf());
