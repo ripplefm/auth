@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.3] - 2019-03-27
+
+### Changed
+
+* Change cookie domain to work on all subdomains of `PUBLIC_DOMAIN`
+
 ## [0.2.2] - 2019-03-24
 
 ### Fixed
